@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "78b0cdde-216e-450b-862b-a2263827a912",
+		"name": "StoriTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7697824"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "CREATE USER",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Ch-Ua",
+								"value": "\"Chromium\";v=\"124\", \"Google Chrome\";v=\"124\", \"Not-A.Brand\";v=\"99\""
+							},
+							{
+								"key": "Sec-Ch-Ua-Mobile",
+								"value": "?0"
+							},
+							{
+								"key": "Sec-Ch-Ua-Platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"email\":\"osdator98@gmail.com\",\"name\":\"oscar\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}user",
+							"host": [
+								"{{url}}user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET USERS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}user",
+							"host": [
+								"{{url}}user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "mail",
+			"item": [
+				{
+					"name": "SEND MAIL",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "presets",
+			"item": [
+				{
+					"name": "CREATE PRESET",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"subject\": \"hola\",\r\n    \"html\": \"fasf\",\r\n    \"files\": [{\r\n        \"filename\": \"hola.txt\",\r\n        \"content\": \"dasdasd\"\r\n    }],\r\n    \"title\": \"das\",\r\n    \"body\": \"fsadf\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}preset",
+							"host": [
+								"{{url}}preset"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET PRESETS",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Shcedule",
+			"item": []
+		},
+		{
+			"name": "STORITEST HEALTH",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}status",
+					"host": [
+						"{{url}}status"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
