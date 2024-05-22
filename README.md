@@ -19,3 +19,9 @@ The dedicated domain containing all entities and DTOs (Data Transfer Objects), p
 
 # Sendgrid
 Sendgrid is a tool integrated in the aplications that helps managing emails and provides statics.
+
+# Api 
+In the repository the file StoriTest.postman_collection.json contains the postman collection to taste the api.
+
+# Deployment
+To run the app in a local enviroment just install packages and run the comand npm run start:dev.
