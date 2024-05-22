@@ -9,10 +9,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { CustomConfigModule } from './modules/config/custom-config.module';
 import { HealthModule } from './Modules/health';
 import { MailModule } from './modules/mail/mail.module';
+import { PresetModule } from './modules/preset/preset.module';
  
 @Module({
   imports: [
-    UserModule, HealthModule, MailModule,
+    UserModule, HealthModule, MailModule, PresetModule,
     CustomConfigModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
