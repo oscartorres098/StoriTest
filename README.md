@@ -11,8 +11,11 @@ The application manages four core entities: Users, Presets, Schedules, and Attac
 ![Diagrama sin título drawio (2)](https://github.com/oscartorres098/StoriTest/assets/36300388/ff4ef692-1a40-45d0-9d70-79be6b48879f)
 
   • Users: Represents the people that register in the application, and that will receive emails.
+  
   • Presets: Represents the content of the mail ths will be send to the user.
+  
   • Attachment: Represents the attatched files tha will be send in a mail.
+  
   • schedule: Represents the date and the hour tha a mail will be send.
 
 # Domain
