@@ -17,13 +17,10 @@ export class MailService {
     private listRepository: Repository<UserByList>,
     //private readonly validator: Validator,
   ) { }
-  getHello(): string {
-    return 'Stori Test is running!';
-  }
+
   async sendMail(sendMailDto: SendMailDto): Promise<void> {
-    console.log()
+
     const list = await this.listRepository.find({ where: { listId:  sendMailDto.to} });
-    console.log(list)
     const users = await Promise.all(list.map(async (el)=>{
       const user = await this.userRepository.findOne({ where: { id:  el.userId} });
       return user.email
@@ -32,7 +29,7 @@ export class MailService {
     const to = await this.userRepository.find({});
     sgMail.setApiKey(configSG.Key)
 
-    let template = RedTemplate(sendMailDto.title, sendMailDto.body, '');
+    let template = RedTemplate(sendMailDto.title, sendMailDto.body, 'http://localhost:3000/unsuscribe');
 
     const msg = {
       to: users, 
