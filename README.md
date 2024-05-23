@@ -8,7 +8,8 @@ This NestJS application provides the backend functionality for a newsletter appl
 
 # Model
 The application manages four core entities: Users, Presets, Schedules, and Attachments. These entities are illustrated in the following diagram.
-![Diagrama sin título drawio](https://github.com/oscartorres098/StoriTest/assets/36300388/f5fab576-836f-48f6-a1fc-9dd3be4c4d3c)
+![Diagrama sin título drawio (2)](https://github.com/oscartorres098/StoriTest/assets/36300388/ff4ef692-1a40-45d0-9d70-79be6b48879f)
+
   • Users: Represents the people that register in the application, and that will receive emails.
   • Presets: Represents the content of the mail ths will be send to the user.
   • Attachment: Represents the attatched files tha will be send in a mail.
