@@ -6,8 +6,13 @@ import { SendMailDto } from 'src/domain/dto/mail/send-mail.dto';
 export class MailController {
   constructor(private readonly mailService: MailService) {}
 
-  @Get('')
+  @Post('')
   async sendMail(@Body() sendMailDto: SendMailDto): Promise<void>{
     await this.mailService.sendMail(sendMailDto);
+  }
+
+  @Post('welcome')
+  async sendMailWelcome(@Body() sendMailDto: SendMailDto): Promise<void>{
+    await this.mailService.sendWelcomeMail(sendMailDto);
   }
 }

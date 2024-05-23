@@ -9,6 +9,6 @@ export class CreateAttatchDto {
     content: string;
 
     @IsString()
-    disposition: 'attachment';
+    disposition: string;
 
 }

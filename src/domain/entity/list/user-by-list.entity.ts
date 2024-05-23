@@ -3,25 +3,19 @@ import { IsString } from 'class-validator';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class Attatch {
+export class UserByList {
   @PrimaryGeneratedColumn('uuid')
   @IsString()
   id: string;
 
   @Column('text')
   @IsString()
-  filename: string;
-
-  @Column({ type: 'bytea' })
-  content: Buffer;
+  listId: string;
 
   @Column('text')
   @IsString()
-  disposition: string;
+  userId: string;
 
-  @Column('text')
-  @IsString()
-  presetId: string;
 
   @Column({
     nullable: true,

@@ -5,7 +5,7 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class PresetService {
-  
+
   constructor(
     @InjectRepository(Preset)
     private presetRepository: Repository<Preset>,
@@ -15,27 +15,28 @@ export class PresetService {
   async create(createPresetDto: CreatePresetDto) {
     try {
       const preset = this.presetRepository.create({
-        html: createPresetDto.html,
         subject: createPresetDto.subject,
         body: createPresetDto.body,
         title: createPresetDto.title,
+        idList: createPresetDto.list,
+        html: createPresetDto.html,
+
       });
-  
+
       const resultPreset = await this.presetRepository.save(preset);
-  
+
       for (const file of createPresetDto.files) {
-        console.log(file);
-  
+        const binaryData = Buffer.from(file.content, 'base64') ;
         const attachment = this.attachmentRepository.create({
           filename: file.filename,
-          content: file.content,
+          content: binaryData,
           disposition: 'attachment',
           presetId: resultPreset.id,
         });
-  
+
         await this.attachmentRepository.save(attachment);
       }
-  
+
       return resultPreset;
     } catch (e) {
       console.log(e)
@@ -44,7 +45,19 @@ export class PresetService {
   }
 
   async findAll() {
-    return await this.presetRepository.find();
+    const presets = await this.presetRepository.find();
+    const files = await Promise.all(presets.map(async (preset) => {
+      const files = await this.attachmentRepository.find(
+        { where: { presetId: preset.id } }
+      );
+      const files64 =files.map((file)=>{
+        const base64Data = file.content.toString('base64');
+        return {filename: file.filename, content: base64Data}
+      })
+      
+      return { ...preset, files: files64 }
+    }))
+    return files;
   }
 
   findOne(id: number) {

@@ -10,10 +10,11 @@ import { CustomConfigModule } from './modules/config/custom-config.module';
 import { HealthModule } from './Modules/health';
 import { MailModule } from './modules/mail/mail.module';
 import { PresetModule } from './modules/preset/preset.module';
+import { ListModule } from './modules/list/list.module';
  
 @Module({
   imports: [
-    UserModule, HealthModule, MailModule, PresetModule,
+    UserModule, HealthModule, MailModule, PresetModule, ListModule,
     CustomConfigModule,
     TypeOrmModule.forRoot({
       type: 'postgres',

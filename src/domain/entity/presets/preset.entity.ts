@@ -24,6 +24,11 @@ export class Preset {
   @IsString()
   body: string;
 
+  @Column('text')
+  @IsString()
+  idList: string;
+
+
   @Column({
     nullable: true,
     default: new Date()
