@@ -24,16 +24,7 @@ export class PresetService {
       const resultPreset = await this.presetRepository.save(preset);
   
       for (const file of createPresetDto.files) {
-        console.log(file);
-  
-        const attachment = this.attachmentRepository.create({
-          filename: file.filename,
-          content: file.content,
-          disposition: 'attachment',
-          presetId: resultPreset.id,
-        });
-  
-        await this.attachmentRepository.save(attachment);
+        
       }
   
       return resultPreset;

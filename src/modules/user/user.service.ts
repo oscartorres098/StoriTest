@@ -28,6 +28,10 @@ export class UserService {
     }
   }
 
+  async delete(deleteUserDto) {
+    return await this.userRepository.delete({email: deleteUserDto.id});
+  }
+
   async findAll() {
     return await this.userRepository.find();
   }

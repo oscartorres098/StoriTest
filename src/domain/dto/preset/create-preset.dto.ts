@@ -10,6 +10,9 @@ export class CreatePresetDto {
     @IsString()
     html: string;
 
+    @IsString()
+    list: string;
+
     @IsOptional()
     files: CreateAttatchDto[];
 
